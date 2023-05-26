@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Fragment, useState } from 'react';
+import { AuthProvider } from 'react-auth-kit';
+
+import Home from './components/Home';
+import Profile from './components/Profile';
+import NotFound from './components/NotFound';
+import Connection from './components/Connection';
+import Login from './components/Login';
+
+import { BrowserRouter as Rooter, Route, Routes } from 'react-router-dom'
+
 
 function App() {
+  const [token, setToken] = useState();
+
+  if (!token) {
+    return (<Login setToken={ setToken } />)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AuthProvider authType = {'cookie'}
+                  authName={'_auth'}
+                  cookieDomain={window.location.hostname}
+                  cookieSecure={window.location.protocol === "https:"}>
+      <React.StrictMode>
+        <Rooter>
+          <Routes>
+            <Route exact path ='/' element={ <Connection/> }/>
+            <Route exact path ='/home' element={ <Home/> } />
+            <Route exact path ='/profile' element={ <Profile/> } />
+            <Route path= '*' element={ <NotFound/> } />
+          </Routes>
+        </Rooter>
+      </React.StrictMode>
+    </AuthProvider>
   );
+
 }
 
 export default App;
