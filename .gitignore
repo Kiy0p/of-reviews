@@ -1,8 +1,19 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+
+##### BACK #####
+
+__pycache__
+.venv
+.idea
+migrations
+db.sqlite3
+
+##### FRONT #####
+
 # dependencies
-/node_modules
-/.pnp
+node_modules
+.pnp
 .pnp.js
 
 # testing
