@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { login } from "../api/Auth";
-import Input from "../utils/Input";
+// import Input from "../utils/Input";
+import "../styles/Login.css";
 
 class Login extends Component {
   state = {
