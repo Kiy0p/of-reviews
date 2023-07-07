@@ -1,6 +1,16 @@
-# Getting Started with Create React App
+# BACK
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### `pip install -r requirements.txt`
+
+installs the requirements in the virtual env.
+
+### `python ./manage.py runserver`
+
+launches the server on localhost:8000
+
+The complete list of the available scripts can be seen with `python manage.py`
+
+# FRONT
 
 ## Available Scripts
 
