@@ -1,26 +1,85 @@
-# BACK
+# Introdutcion
 
-### `pip install -r requirements.txt`
+## Get the app running
+
+To launch the app, you can either launch the front and back of the applications simultanously by hand on 2 diffrent terminals, OR launch both of the docker files simultanously by hand in 2 separate terminals
+
+You have three ways to get your app up and running :
+- [via docker-compose](#use-docker-compose)
+- [via dockers](#use-docker)
+- [by hand](#launch-by-hand)
+
+
+## Use docker-compose
+If you want to use docker-compose to launch these applications, you have to install docker AND docker-compose on yout machine : docker : [documentation for docker installation](https://docs.docker.com/engine/install/), docker-compose : [documentation for docker-compose installation](https://docs.docker.com/compose/install/standalone/).
+If not, you can go to the [Launch by hand section](#launch-by-hand) section to run the application without containers.
+
+### build
+To create the images relative to the front and back of your applications, you can use:
+`docker compose run`
+
+To launch those images you just created, you can run:
+`docker compose up`
+You can use the `-d` flag to make it run in the background.
+
+The application backend should then be available on `localhost:8000`
+The application frontend should then be availabke on `localhost:3000`
+
+## Use docker
+If you want to use only docker, you only have to install docker : [documentation for docker installation](https://docs.docker.com/engine/install/).
+If not, you can go to the [Launch by hand section](#launch-by-hand) section to run the application without containers.
+
+### back
+
+to create the image, you can run, at the root of this project :
+`docker build -t of-reviews-backend ./back`
+
+The image has been created, you can see it with `docker images`
+
+You can then launch the image, which created the containers for the backend :
+`docker run -p "8000:8000" of-reviews-backend`
+
+You can then access the api with your browser or postman with:
+`localhost:8000`
+
+### front
+
+to create the image, you can run, at the root of this project :
+`docker build -t of-reviews-frontend ./front`
+
+The image has been created, you can see it with `docker images`
+
+You can then launch the image, which created the containers for the backend :
+`docker run -p "3000:3000" of-reviews-frontend`
+
+You can then access the api with your browser or postman with:
+`localhost:3000`
+
+## Launch by hand
+
+### back
+
+###### `pip install -r requirements.txt`
 
 installs the requirements in the virtual env.
 
-### `python ./manage.py runserver`
+###### `python ./manage.py runserver`
 
 launches the server on localhost:8000
-
 The complete list of the available scripts can be seen with `python manage.py`
 
-# FRONT
+### front
 
-## Available Scripts
+###### Available Scripts
 
+The list of all the available scripts can be found in package.json.
 In the project directory, you can run:
 
-### `npm install`
+###### `npm install`
 
 reads the package.json and installs the modules in nodes_modules and creates package-lock.json.
 
-### `npm start`
+###### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
@@ -28,57 +87,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
+###### `npm test`
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
