@@ -1,13 +1,13 @@
 import React from "react";
 
-const Input = ({ field, value, handleChange }) => {
+const Input = ({ field, value, type, handleChange }) => {
   return (
     <label>
       <p>{ field }</p>
       <input
       value={ value }
       onChange={ handleChange(field) }
-      type="text" 
+      type={ type }
       placeholder="pseudo" 
       required/>
     </label>

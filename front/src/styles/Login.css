@@ -1,5 +1,19 @@
-.login-wrapper {
+.login-form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 50%;
+}
+
+#login-header {
+  height: 3em;
+  width: 50%;
+  background-color: aqua;
+  display: flex;
+  align-items: center;
+}
+
+.login-wrapper {
+  display: flex;
+  flex-direction: row;
 }

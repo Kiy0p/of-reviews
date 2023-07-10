@@ -6,6 +6,8 @@ import NotFound from './components/NotFound';
 import Register from './components/Register';
 import Login from './components/Login';
 
+import "./styles/App.css";
+
 import { BrowserRouter as Rooter, Route, Routes } from 'react-router-dom'
 
 

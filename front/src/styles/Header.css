@@ -1,0 +1,6 @@
+#login-header {
+    height: 100%;
+    background-color: aqua;
+    display: flex;
+    align-items: center;
+}

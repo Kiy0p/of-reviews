@@ -1,5 +1,7 @@
-import React, { Component } from "react";
-import {register} from "../api/Auth";
+import React, { Component, Fragment } from "react";
+import Header from "../utils/Header";
+import { register } from "../api/Auth";
+
 
 class Register extends Component {
   state = {
@@ -36,30 +38,34 @@ class Register extends Component {
 
   render () {
     return (
-      <div className="login-wrapper">
-        <h1>Please Register</h1>
-        <form onSubmit={ this.handleSubmit }>
-          <label>
-            <p>Username</p>
-            <input type="text" value={ this.state.username } onChange={ this.handleChangeUsername }/>
-          </label>
-          <label>
-            <p>Email</p>
-            <input type="text" value={ this.state.email } onChange={ this.handleChangeEmail }/>
-          </label>
-          <label>
-            <p>Password</p>
-            <input type="text" value={ this.state.password_1 } onChange={ this.handleChangePassword1 }/>
-          </label>
-          <label>
-            <p>Re-enter password</p>
-            <input type="text" value={ this.state.password_2 } onChange={ this.handleChangePassword2 }/>
-          </label>
-          <div>
-            <button type="submit">Submit</button>
-          </div>
-        </form>
-      </div>
+      <Fragment>
+        <Header className="login-header"/>
+        <div className="login-wrapper">
+          <h1>Please Register</h1>
+          <form onSubmit={ this.handleSubmit }>
+            <label>
+              <p>Username</p>
+              <input type="text" value={ this.state.username } onChange={ this.handleChangeUsername }/>
+            </label>
+            <label>
+              <p>Email</p>
+              <input type="text" value={ this.state.email } onChange={ this.handleChangeEmail }/>
+            </label>
+            <label>
+              <p>Password</p>
+              <input type="password" value={ this.state.password_1 } onChange={ this.handleChangePassword1 }/>
+            </label>
+            <label>
+              <p>Re-enter password</p>
+              <input type="password" value={ this.state.password_2 } onChange={ this.handleChangePassword2 }/>
+            </label>
+            <div>
+              <button type="submit">Submit</button>
+            </div>
+          </form>
+        </div>
+      </Fragment>
+      
     )
   }
 }

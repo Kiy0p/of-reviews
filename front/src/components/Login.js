@@ -1,7 +1,8 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { login } from "../api/Auth";
 // import Input from "../utils/Input";
 import "../styles/Login.css";
+import Header from "../utils/Header";
 
 class Login extends Component {
   state = {
@@ -27,20 +28,23 @@ class Login extends Component {
   render () {
     return (
       <div className="login-wrapper">
-        <h1>Please login</h1>
-        <form onSubmit={ this.handleSubmit }>
-          <label>
-            <p>Username</p>
-            <input type="text" value={ this.state.username } onChange={ this.handleChangeUsername }/>
-          </label>
-          <label>
-            <p>Password</p>
-            <input type="password" value={ this.state.password } onChange={ this.handleChangePassword }/>
-          </label>
-          <div>
-            <button type="submit">Submit</button>
-          </div>
-        </form>
+        <Header className="login-header"/>
+        <div className="login-form">
+          <h1>Login</h1>
+          <form onSubmit={ this.handleSubmit }>
+            <label>
+              <p>Username</p>
+              <input type="text" value={ this.state.username } onChange={ this.handleChangeUsername }/>
+            </label>
+            <label>
+              <p>Password</p>
+              <input type="password" value={ this.state.password } onChange={ this.handleChangePassword }/>
+            </label>
+            <div>
+              <button type="submit">Submit</button>
+            </div>
+          </form>
+        </div>
       </div>
     )
   }
